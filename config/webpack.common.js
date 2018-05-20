@@ -11,21 +11,21 @@ const isProd = NODE_ENV === 'production';
 
 module.exports = {
   entry: {
-    'app': [
-      helpers.root('client/app/index.js')
-    ]
+    app: [
+      helpers.root('client/app/index.jsx'),
+    ],
   },
 
   output: {
     path: helpers.root('dist'),
-    publicPath: '/'
+    publicPath: '/',
   },
 
   resolve: {
-    extensions: ['.js', '.json', '.css', '.scss', '.html'],
+    extensions: ['.js', '.jsx', '.json', '.css', '.scss', '.html'],
     alias: {
-      'app': 'client/app'
-    }
+      app: 'client/app',
+    },
   },
 
   module: {
@@ -34,7 +34,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         include: helpers.root('client'),
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
 
       // SCSS files
@@ -46,23 +46,23 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                'sourceMap': true,
-                'importLoaders': 1
-              }
+                sourceMap: true,
+                importLoaders: 1,
+              },
             },
             {
               loader: 'postcss-loader',
               options: {
                 plugins: () => [
-                  autoprefixer
-                ]
-              }
+                  autoprefixer,
+                ],
+              },
             },
-            'sass-loader'
-          ]
-        })
-      }
-    ]
+            'sass-loader',
+          ],
+        }),
+      },
+    ],
   },
 
   plugins: [
@@ -70,22 +70,22 @@ module.exports = {
 
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(NODE_ENV)
-      }
+        NODE_ENV: JSON.stringify(NODE_ENV),
+      },
     }),
 
     new HtmlWebpackPlugin({
       template: helpers.root('client/public/index.html'),
-      inject: 'body'
+      inject: 'body',
     }),
 
     new ExtractTextPlugin({
       filename: 'css/[name].[hash].css',
-      disable: !isProd
+      disable: !isProd,
     }),
 
     new CopyWebpackPlugin([{
-      from: helpers.root('client/public')
-    }])
-  ]
+      from: helpers.root('client/public'),
+    }]),
+  ],
 };
