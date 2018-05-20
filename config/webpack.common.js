@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const helpers = require('./helpers');
 
-const NODE_ENV = process.env.NODE_ENV;
+const { NODE_ENV } = process.env.NODE_ENV || {};
 const isProd = NODE_ENV === 'production';
 
 module.exports = {
