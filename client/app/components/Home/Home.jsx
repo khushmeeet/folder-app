@@ -6,7 +6,7 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      counters: []
+      counters: [],
     };
 
     this.newCounter = this.newCounter.bind(this);
@@ -20,9 +20,9 @@ class Home extends Component {
   componentDidMount() {
     fetch('/api/counters')
       .then(res => res.json())
-      .then(json => {
+      .then((json) => {
         this.setState({
-          counters: json
+          counters: json,
         });
       });
   }
@@ -30,12 +30,12 @@ class Home extends Component {
   newCounter() {
     fetch('/api/counters', { method: 'POST' })
       .then(res => res.json())
-      .then(json => {
-        let data = this.state.counters;
+      .then((json) => {
+        const data = this.state.counters;
         data.push(json);
 
         this.setState({
-          counters: data
+          counters: data,
         });
       });
   }
@@ -45,7 +45,7 @@ class Home extends Component {
 
     fetch(`/api/counters/${id}/increment`, { method: 'PUT' })
       .then(res => res.json())
-      .then(json => {
+      .then((json) => {
         this._modifyCounter(index, json);
       });
   }
@@ -55,7 +55,7 @@ class Home extends Component {
 
     fetch(`/api/counters/${id}/decrement`, { method: 'PUT' })
       .then(res => res.json())
-      .then(json => {
+      .then((json) => {
         this._modifyCounter(index, json);
       });
   }
@@ -64,13 +64,13 @@ class Home extends Component {
     const id = this.state.counters[index]._id;
 
     fetch(`/api/counters/${id}`, { method: 'DELETE' })
-      .then(_ => {
+      .then((_) => {
         this._modifyCounter(index, null);
       });
   }
 
   _modifyCounter(index, data) {
-    let prevData = this.state.counters;
+    const prevData = this.state.counters;
 
     if (data) {
       prevData[index] = data;
@@ -79,13 +79,13 @@ class Home extends Component {
     }
 
     this.setState({
-      counters: prevData
+      counters: prevData,
     });
   }
 
   render() {
     return (
-      <>
+      <div>
         <p>Counters:</p>
 
         <ul>
@@ -100,7 +100,7 @@ class Home extends Component {
         </ul>
 
         <button onClick={this.newCounter}>New counter</button>
-      </>
+      </div>
     );
   }
 }
