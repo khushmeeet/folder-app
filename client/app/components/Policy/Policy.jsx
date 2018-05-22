@@ -7,6 +7,8 @@ import {
   Col,
   Row,
 } from 'reactstrap';
+import numeral from 'numeral';
+import moment from 'moment';
 
 
 class Policy extends React.PureComponent {
@@ -52,19 +54,19 @@ class Policy extends React.PureComponent {
                       </span>
                       <br />
                       <span>
-                        <strong>Date of Commencement: </strong>{elm.date_of_commencement}
+                        <strong>Date of Commencement: </strong>{moment(elm.date_of_commencement).format('MMMM Do YYYY')}
                       </span>
                       <br />
                       <span>
-                        <strong>Date of Maturity: </strong>{elm.date_of_maturity}
+                        <strong>Date of Maturity: </strong>{moment(elm.date_of_maturity).format('MMMM Do YYYY')}
                       </span>
                       <br />
                       <span>
-                        <strong>Date of Last Payment: </strong>{elm.date_of_last_payment}
+                        <strong>Date of Last Payment: </strong>{moment(elm.date_of_last_payment).format('MMMM Do YYYY')}
                       </span>
                       <br />
                       <span>
-                        <strong>Premium Payable: </strong>{elm.premium_payable}
+                        <strong>Premium Payable: </strong>{`₹${numeral(elm.premium_payable).format('0,0')}/month`}
                       </span>
                     </CardText>
                     <Button color="primary">Edit</Button>
