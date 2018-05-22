@@ -1,26 +1,12 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom';
-import App from './components/App/App';
-import NotFound from './components/App/NotFound';
-import Home from './components/Home/Home';
-import HelloWorld from './components/HelloWorld/HelloWorld';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/styles.scss';
+import App from './components/App/App';
 
-ReactDom.render(
+
+ReactDOM.render(
   (
-    <Router>
-      <App>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/helloworld" component={HelloWorld} />
-          <Route component={NotFound} />
-        </Switch>
-      </App>
-    </Router>
+    <App />
   ), document.getElementById('app'),
 );

@@ -1,18 +1,12 @@
-import React from 'react';
-
+import React, { Fragment } from 'react';
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import Policy from '../Policy/Policy';
 
-const App = ({ children }) => (
-  <div>
+const App = () => (
+  <Fragment>
     <Header />
-
-    <main>
-      {children}
-    </main>
-
-    <Footer />
-  </div>
+    <Policy />
+  </Fragment>
 );
 
 export default App;

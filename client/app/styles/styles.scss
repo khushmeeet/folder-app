@@ -1,3 +1,16 @@
 @charset "UTF-8";
 
 @import 'vendor/normalize';
+
+.policy-list {
+  margin-top: 50px;
+
+  .policy-card {
+    margin-bottom: 20px;
+  }
+
+  button {
+    width: 20%;
+    margin-left: 80%;
+  }
+}
