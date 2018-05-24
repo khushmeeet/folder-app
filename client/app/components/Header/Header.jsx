@@ -12,9 +12,10 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
-class Header extends React.PureComponent {
+class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,13 +47,13 @@ class Header extends React.PureComponent {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  Aadhar Card
+                  <Link to="/aadhar" >Aadhar Card</Link>
                 </DropdownItem>
                 <DropdownItem>
-                  Passport
+                  <Link to="/passport" >Passport</Link>
                 </DropdownItem>
                 <DropdownItem>
-                  PAN
+                  <Link to="/pan" >PAN</Link>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

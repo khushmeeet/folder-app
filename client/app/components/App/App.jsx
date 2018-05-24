@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import Header from '../Header/Header';
-import Policy from '../Policy/Policy';
 
-const App = () => (
+
+const App = ({ children }) => (
   <Fragment>
     <Header />
-    <Policy />
+    {children}
   </Fragment>
 );
+
 
 export default App;
