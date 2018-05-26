@@ -1,5 +1,5 @@
-const _ = require('lodash');
 const Policy = require('../../models/Policy');
+const _ = require('lodash');
 
 
 function handleEntityNotFound(res) {

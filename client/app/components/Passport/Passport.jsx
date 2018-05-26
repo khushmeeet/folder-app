@@ -1,8 +1,15 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 
 
-class Passport extends React.Component {
+class Passport extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      img_src: '',
+    };
+  }
+
   render() {
     return (
       <h1>Passport</h1>
@@ -11,4 +18,4 @@ class Passport extends React.Component {
 }
 
 
-export default withRouter(Passport);
+export default Passport;

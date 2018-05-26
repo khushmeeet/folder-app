@@ -1,8 +1,15 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 
 
-class Pan extends React.Component {
+class Pan extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      img_src: ''
+    };
+  }
+
   render() {
     return (
       <h1>Pan</h1>
@@ -11,4 +18,4 @@ class Pan extends React.Component {
 }
 
 
-export default withRouter(Pan);
+export default Pan;
