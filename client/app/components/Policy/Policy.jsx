@@ -50,12 +50,11 @@ class Policy extends React.PureComponent {
           <NewPolicy />
         </div>
         <div className="policy-list">
-          {
-          this.state.policy.map(elm =>
-            (
-              <Row>
-                <Col sm="3" />
-                <Col sm="6">
+          <Row>
+            {
+            this.state.policy.map(elm =>
+              (
+                <Col sm="4">
                   <Card body className="policy-card" key={elm.policy_no}>
                     <CardTitle>{elm.policy_name}</CardTitle>
                     <CardText>
@@ -68,19 +67,19 @@ class Policy extends React.PureComponent {
                       </span>
                       <br />
                       <span>
-                        <strong>Date of Commencement: </strong>{moment(elm.date_of_commencement).format('MMMM Do YYYY')}
+                        <strong>Date of Commencement: </strong>{ elm.date_of_commencement !== undefined ? moment(elm.date_of_commencement).format('MMMM Do YYYY') : '~'}
                       </span>
                       <br />
                       <span>
-                        <strong>Date of Maturity: </strong>{moment(elm.date_of_maturity).format('MMMM Do YYYY')}
+                        <strong>Date of Maturity: </strong>{ elm.date_of_maturity !== undefined ? moment(elm.date_of_maturity).format('MMMM Do YYYY') : '~'}
                       </span>
                       <br />
                       <span>
-                        <strong>Date of Last Payment: </strong>{moment(elm.date_of_last_payment).format('MMMM Do YYYY')}
+                        <strong>Date of Last Payment: </strong>{ elm.date_of_last_payment !== undefined ? moment(elm.date_of_last_payment).format('MMMM Do YYYY') : '~'}
                       </span>
                       <br />
                       <span>
-                        <strong>Premium Payable: </strong>{`₹${numeral(elm.premium_payable).format('0,0')}/month`}
+                        <strong>Premium Payable: </strong>{ elm.premium_payable !== undefined ? `₹${numeral(elm.premium_payable).format('0,0')}/month` : '~'}
                       </span>
                     </CardText>
                     <Fragment>
@@ -134,10 +133,9 @@ class Policy extends React.PureComponent {
                     </Fragment>
                   </Card>
                 </Col>
-                <Col sm="3" />
-              </Row>
-            ))
-          }
+              ))
+              }
+          </Row>
         </div>
       </Fragment>
     );

@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+  Card,
+  CardBody,
+  CardTitle,
+  Col,
+  Row,
+} from 'reactstrap';
 
 
 class Passport extends React.PureComponent {
@@ -6,13 +13,44 @@ class Passport extends React.PureComponent {
     super(props);
 
     this.state = {
-      img_src: '',
+      passport: [],
     };
+  }
+
+  componentDidMount() {
+    fetch('/api/passport', { method: 'GET' })
+      .then(res => res.json())
+      .then((jsonRes) => {
+        this.setState({
+          passport: jsonRes,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
     return (
-      <h1>Passport</h1>
+      <div className="policy-list">
+        <Row>
+          {
+            this.state.passport.map(elm =>
+              (
+                <Col sm="6" key={elm.name}>
+                  <Card className="doc-card">
+                    <CardBody>
+                      <CardTitle>{elm.name}</CardTitle>
+                    </CardBody>
+                    <a href={elm.img_src} download>
+                      <img width="605px" height="501px" src={elm.img_src} alt={elm.name} />
+                    </a>
+                  </Card>
+                </Col>
+              ))
+            }
+        </Row>
+      </div>
     );
   }
 }

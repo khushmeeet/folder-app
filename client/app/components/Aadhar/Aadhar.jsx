@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Card,
   CardBody,
-  CardLink,
   CardTitle,
   Col,
   Row,
@@ -34,35 +33,23 @@ class Aadhar extends React.PureComponent {
   render() {
     return (
       <div className="policy-list">
-        {
-          this.state.aadhar.map(elm =>
-          (
-            <Row key={elm.name}>
-              <Col sm="6">
-                <Card>
-                  <CardBody>
-                    <CardTitle>{elm.name}</CardTitle>
-                  </CardBody>
-                  <img width="100%" src={elm.img_src} alt={elm.name} />
-                  <CardBody>
-                    <CardLink href="#">Download</CardLink>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col sm="6">
-                <Card>
-                  <CardBody>
-                    <CardTitle>{elm.name}</CardTitle>
-                  </CardBody>
-                  <img width="100%" src={elm.img_src} alt={elm.name} />
-                  <CardBody>
-                    <CardLink href="#">Download</CardLink>
-                  </CardBody>
-                </Card>
-              </Col>
-            </Row>
-          ))
-        }
+        <Row>
+          {
+            this.state.aadhar.map(elm =>
+              (
+                <Col sm="6" key={elm.name}>
+                  <Card className="doc-card">
+                    <CardBody>
+                      <CardTitle>{elm.name}</CardTitle>
+                    </CardBody>
+                    <a href={elm.img_src} download>
+                      <img width="605px" height="501px" src={elm.img_src} alt={elm.name} />
+                    </a>
+                  </Card>
+                </Col>
+              ))
+          }
+        </Row>
       </div>
     );
   }

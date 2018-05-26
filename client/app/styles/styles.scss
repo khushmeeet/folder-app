@@ -3,7 +3,7 @@
 @import 'vendor/normalize';
 
 .policy-list {
-  margin-top: 50px;
+  margin: 50px 20px 0 20px;
 
   .policy-card {
     margin-bottom: 20px;
@@ -22,4 +22,8 @@
 
 .new-policy {
   margin: 20px 47%;
+}
+
+.doc-card {
+  margin-top: 20px;
 }
